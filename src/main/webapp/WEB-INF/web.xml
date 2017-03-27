@@ -8,8 +8,19 @@
         <servlet-name>receiveMessage</servlet-name>
         <servlet-class>com.zyl.weixin.servlet.ReceiveWeixinMessageServlet</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>sendKefuMessage</servlet-name>
+        <servlet-class>com.zyl.weixin.servlet.SendWeixinKefuMessageServlet</servlet-class>
+    </servlet>
+    
     <servlet-mapping>
         <servlet-name>receiveMessage</servlet-name>
         <url-pattern>/receivemessage</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>sendKefuMessage</servlet-name>
+        <url-pattern>/sendkefumessage</url-pattern>
     </servlet-mapping>
 </web-app>
