@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -50,7 +51,11 @@ public class ReceiveWeixinMessageServlet extends BasicWeixinHttpServlet {
 System.out.println("没有请求信息");
         }
         
-        response.getOutputStream().write("".getBytes());
+        long mills = Calendar.getInstance().getTimeInMillis();
+        String responseInfo = "<xml><ToUserName><![CDATA[ouuhBwDxfM-3lrH5wyEGnccBoWjw]]></ToUserName><FromUserName><![CDATA[gh_0e63151a5c58]]></FromUserName><CreateTime>"+mills+"</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[<a href='www.chsi.com.cn'>学信网</a>]]></Content></xml>";
+        
+        response.setContentType("application/xml;charset=UTF-8");
+        response.getOutputStream().write(responseInfo.getBytes("UTF-8"));
     }
     
     /**
